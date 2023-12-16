@@ -51,8 +51,14 @@ class Player {
         // Get symbol used by player
         char get_symbol();
 };
-
 ///////////////////////////////////////////
+class PY_Player:public Player{
+
+public:
+    PY_Player(int order, char symbol);
+    void get_move(int& x, int& y);
+
+};
 // This class represents a random computer player
 // that generates random positions x y (0 to 2)
 // If invalid, game manager asks to regenerate
@@ -96,4 +102,14 @@ public:
     bool is_draw();
     bool game_is_over();
 };
+class PY_Board:public Board{
+public:
+    PY_Board ();
+    bool update_board (int x, int y, char mark) override;
+    void display_board() override;
+    bool is_winner() override;
+    bool is_draw() override;
+    bool game_is_over() override;
+};
+
 #endif
