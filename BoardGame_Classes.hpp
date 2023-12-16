@@ -96,4 +96,16 @@ public:
     bool is_draw();
     bool game_is_over();
 };
+// This class represents a 5x5 board
+// used in Tic_Tac_Toe game
+class Tic_Tac_Toe_Board:public Board {
+public:
+     Tic_Tac_Toe_Board ();
+   bool update_board (int x, int y, char mark);
+   void display_board();
+   bool is_winner();
+   bool is_draw();
+   bool game_is_over();
+
+};
 #endif
