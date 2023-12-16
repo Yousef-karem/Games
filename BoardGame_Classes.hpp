@@ -44,8 +44,7 @@ class Player {
         Player (char symbol); // Needed for computer players
         Player (int order, char symbol);
         // Get desired move: x y (each between 0 and 2)
-        // Virtual (can change for other player types)
-        virtual void get_move(int& x, int& y);
+        virtual void get_move(int& x, int& y)=0;
         // Give player info as a string
         string to_string();
         // Get symbol used by player
@@ -95,5 +94,21 @@ public:
     bool is_winner();
     bool is_draw();
     bool game_is_over();
+};
+///////////////////////////////////////////
+//Player to play connect-four game
+class connectFour_player:public Player
+{
+public:
+    connectFour_player (int order, char symbol);
+    void get_move(int &x, int &y) override;
+};
+class connectFour_RandomPlayer:public Player
+{
+private:
+    int dX,dY;
+public:
+    connectFour_RandomPlayer(char symbol,int dX,int dY);
+    void get_move(int &x, int &y) override;
 };
 #endif

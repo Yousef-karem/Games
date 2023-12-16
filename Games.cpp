@@ -13,12 +13,12 @@ void Connect_four_Game()
     cout << "Press 1 if you want to play with computer: ";
     cin >> choice;
     Player *players[2];
-    players[0]=new Player(1,'X');
+    players[0]=new connectFour_player(1,'X');
     if (choice != 1)
-        players[1] = new Player (2, 'o');
+        players[1] = new connectFour_player (2, 'o');
     else
         //Player pointer points to child
-        players[1] = new RandomPlayer ('o', 6);
+        players[1] = new connectFour_RandomPlayer ('o',6,7);
     GameManager R(new connectFour_Board,players);
     R.run();
 }
