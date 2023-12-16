@@ -111,4 +111,13 @@ public:
     connectFour_RandomPlayer(char symbol,int dX,int dY);
     void get_move(int &x, int &y) override;
 };
+class GameManager_Tic_Tac_Toc {
+private:
+    Board* boardPtr;
+    Player* players[2];
+public:
+    GameManager_Tic_Tac_Toc(Board*, Player* playerPtr[2]);
+    void run();
+
+};
 #endif
