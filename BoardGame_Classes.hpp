@@ -111,6 +111,16 @@ public:
     connectFour_RandomPlayer(char symbol,int dX,int dY);
     void get_move(int &x, int &y) override;
 };
+class Tic_Tac_Toe_Board:public Board {
+public:
+     Tic_Tac_Toe_Board ();
+   bool update_board (int x, int y, char mark);
+   void display_board();
+   bool is_winner();
+   bool is_draw();
+   bool game_is_over();
+
+};
 class GameManager_Tic_Tac_Toc {
 private:
     Board* boardPtr;
