@@ -128,3 +128,9 @@ bool Tic_Tac_Toe_Board::is_draw() {
 bool Tic_Tac_Toe_Board::game_is_over () {
     return n_moves >= 24;
 }
+void Tic_Tac_Toe_player::get_move(int &x, int &y) {
+        cout << "\nPlease enter your move x and y (0 to 5) separated by spaces: ";
+        cin >> x >> y;
+}
+Tic_Tac_Toe_player::Tic_Tac_Toe_player(int order, char symbol) : Player(order, symbol) {
+}

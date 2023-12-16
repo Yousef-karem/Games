@@ -44,7 +44,7 @@ class Player {
         Player (char symbol); // Needed for computer players
         Player (int order, char symbol);
         // Get desired move: x y (each between 0 and 2)
-        virtual void get_move(int& x, int& y)=0;
+        virtual void get_move(int& x, int& y);
         // Give player info as a string
         string to_string();
         // Get symbol used by player
@@ -103,12 +103,12 @@ public:
     connectFour_player (int order, char symbol);
     void get_move(int &x, int &y) override;
 };
-class connectFour_RandomPlayer:public Player
+class New_RandomPlayer:public Player
 {
 private:
     int dX,dY;
 public:
-    connectFour_RandomPlayer(char symbol,int dX,int dY);
+    New_RandomPlayer(char symbol,int dX,int dY);
     void get_move(int &x, int &y) override;
 };
 class Tic_Tac_Toe_Board:public Board {
@@ -129,5 +129,36 @@ public:
     GameManager_Tic_Tac_Toc(Board*, Player* playerPtr[2]);
     void run();
 
+};
+class Tic_Tac_Toe_player:public Player
+{
+public:
+    Tic_Tac_Toe_player (int order, char symbol);
+    void get_move(int &x, int &y) override;
+};
+class PY_Board:public Board{
+public:
+    PY_Board ();
+    bool update_board (int x, int y, char mark) override;
+    void display_board() override;
+    bool is_winner() override;
+    bool is_draw() override;
+    bool game_is_over() override;
+};
+class PY_Player:public Player{
+
+public:
+    PY_Player(int order, char symbol);
+    void get_move(int& x, int& y);
+
+};
+class X_O_Board:public Board {
+public:
+    X_O_Board ();
+    bool update_board (int x, int y, char mark);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
 };
 #endif
