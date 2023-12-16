@@ -25,14 +25,6 @@ Player::Player (int order, char symbol) {
     cin >> name;
     this->symbol = symbol;
 }
-
-// Get desired move: x y (each between 0 and 2)
-// Virtual (can change for other player types)
-void Player::get_move (int& x, int& y) {
-    cout << "\nPlease enter your move x (0 to 6) : ";
-    cin >> y ;
-}
-
 // Give player info as a string
 string Player::to_string(){
     return "Player: " + name ;
