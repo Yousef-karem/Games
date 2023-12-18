@@ -14,13 +14,14 @@ void Connect_four_Game()
     cin >> choice;
     Player *players[2];
     players[0]=new connectFour_player(1,'X');
+    Board *board=new connectFour_Board;
     if (choice != 1)
-        players[1] = new connectFour_player (2, 'o');
+        players[1] = new connectFour_player (2, 'O');
     else
         //Player pointer points to child
-        players[1] = new New_RandomPlayer ('o',6,7);
-    GameManager connectFour_game(new connectFour_Board,players);
-    connectFour_game.run();
+        players[1] = new ConnectFour_AI_Player ('O',board);
+    GameManager ConnectFour_Game(board,players);
+    ConnectFour_Game.run();
 }
 void Pyramic_Tic_Tac_Toe()
 {
