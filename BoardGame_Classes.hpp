@@ -8,25 +8,25 @@
 using namespace std;
 class Board {
 protected:
-   int n_rows, n_cols;
-   char** board;
-   int  n_moves = 0;
+    int n_rows, n_cols;
+    int  n_moves = 0;
 public:
+    char** board;
     char symbol;
-   // Return true  if move is valid and put it on board
-   // within board boundaries in empty cell
-   // Return false otherwise
-   virtual bool update_board (int x, int y, char symbol) = 0;
-   // Returns true if there is any winner
-   // either X or O
-   // Written in a complex way. DO NOT DO LIKE THIS.
-   virtual bool is_winner() = 0;
-   // Return true if all moves are done and no winner
-   virtual bool is_draw() = 0;
-   // Display the board and the pieces on it
-   virtual void display_board() = 0;
-   // Return true if game is over
-   virtual bool game_is_over() = 0;
+    // Return true  if move is valid and put it on board
+    // within board boundaries in empty cell
+    // Return false otherwise
+    virtual bool update_board (int x, int y, char symbol) = 0;
+    // Returns true if there is any winner
+    // either X or O
+    // Written in a complex way. DO NOT DO LIKE THIS.
+    virtual bool is_winner() = 0;
+    // Return true if all moves are done and no winner
+    virtual bool is_draw() = 0;
+    // Display the board and the pieces on it
+    virtual void display_board() = 0;
+    // Return true if game is over
+    virtual bool game_is_over() = 0;
 };
 ///////////////////////////////////////////
 // This class represents a player who has
@@ -68,8 +68,8 @@ class RandomPlayer: public Player {
 ///////////////////////////////////////////
 class GameManager {
     private:
-        Board* boardPtr;
         Player* players[2];
+        Board* boardPtr;
     public:
         GameManager(Board*, Player* playerPtr[2]);
         void run();
@@ -96,7 +96,7 @@ public:
     bool game_is_over();
 };
 ///////////////////////////////////////////
-//Player to play connect-four game
+//Players to play connect-four game
 class connectFour_player:public Player
 {
 public:
@@ -160,5 +160,15 @@ public:
     bool is_winner();
     bool is_draw();
     bool game_is_over();
+};
+class ConnectFour_AI_Player:public Player
+{
+private:
+    Board *ptr;
+    int MinMax(int &x, int &y,bool maximize,int cnt);
+    bool last(int &a,int &b);
+public:
+    ConnectFour_AI_Player(char symbol,Board*ptr);
+    void get_move(int &x, int &y) override;
 };
 #endif

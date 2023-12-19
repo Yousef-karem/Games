@@ -92,7 +92,7 @@ bool connectFour_Board::is_winner() {
 
 connectFour_Board::connectFour_Board() {
     n_rows = 7;
-    n_cols = 7;
+    n_cols = 6;
     n_moves = 0;
     board = new char *[n_rows];
     for (int i = 0; i < n_rows; ++i) {
