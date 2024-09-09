@@ -25,7 +25,7 @@ Game 1:Four-in-a-row
   
 Game 2:Pyramic Tic-Tac-Toe
   The game board is shaped like a pyramid. Five squares make the base, then three, then one. Players take turns marking Xs and Os as in traditional tic-tac-toe.
-  Winning: The first player to get three-in-a-row vertically, horizontally, or diagonally wins. See two examples of winning positions, below.
+  Winning: The first player to get three-in-a-row vertically, horizontally, or diagonally wins.
   ![photo_5978877312969590068_m](https://github.com/user-attachments/assets/ea767df1-e95e-4d35-9bde-9e160b1d4c74)
 
   
